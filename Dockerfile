@@ -1,11 +1,13 @@
 FROM debian:stretch
 MAINTAINER LolHens <pierrekisters@gmail.com>
 
+ENV CLEANIMAGE_VERSION 2.0
+ENV CLEANIMAGE_URL https://raw.githubusercontent.com/LolHens/docker-cleanimage/$CLEANIMAGE_VERSION/cleanimage
 
-ENV COMPOSE_VERSION 1.24.0
+ENV COMPOSE_VERSION 1.29.2
 
 
-ADD ["https://raw.githubusercontent.com/LolHens/docker-tools/master/bin/cleanimage", "/usr/local/bin/"]
+ADD ["$CLEANIMAGE_URL", "/usr/local/bin/"]
 RUN chmod +x "/usr/local/bin/cleanimage"
 
 RUN apt-get update \
